@@ -1,5 +1,5 @@
 # Minimum CMake required
-cmake_minimum_required(VERSION 2.8.12)
+cmake_minimum_required(VERSION 3.14.4)
 
 # Project
 project(protobuf-examples)
@@ -26,7 +26,7 @@ if(MSVC AND protobuf_MSVC_STATIC_RUNTIME)
     endforeach()
 endif()
 
-foreach(example add_person list_people)
+foreach(example add_people list_people)
     set(${example}_SRCS ${example}.cc)
     set(${example}_PROTOS addressbook.proto)
 

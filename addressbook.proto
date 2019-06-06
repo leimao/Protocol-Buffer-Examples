@@ -31,7 +31,7 @@ message Person {
 
     // Protobuf support enumerator type
     enum PhoneType {
-        MOBILE = 0;
+        MOBILE = 0; // Default is always 0 in proto3
         HOME = 1;
         WORK = 2;
     }

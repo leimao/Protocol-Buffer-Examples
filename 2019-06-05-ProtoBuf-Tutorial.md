@@ -14,9 +14,20 @@ share: true
 Installation guide:
 https://github.com/protocolbuffers/protobuf/blob/master/src/README.md
 
+```
+$ cd /tmp
+$ wget https://github.com/protocolbuffers/protobuf/releases/download/v3.8.0/protobuf-all-3.8.0.tar.gz
+$ tar -xf protobuf-all-3.8.0.tar.gz
+$ cd protobuf-3.8.0
+```
+
+
 
 I was installing the `all` version so it was a little bit slow.
 To accelerate the installation process.
+
+
+
 
 ```
 $ ./configure
