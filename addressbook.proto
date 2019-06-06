@@ -1,0 +1,55 @@
+/*
+ * This script uses proto3 protocol. 
+ * Many syntaxes are different to the proto2 protocol.
+ * protoc compiler compile proto file to C++ header files and implementation files.
+ */
+
+// [START declaration]
+syntax = "proto3";
+// Namespace
+package tutorial;
+// Protobuf supports import other proto files
+import "google/protobuf/timestamp.proto";
+// [END declaration]
+
+// Message hierarchy 
+// Addressbook -> Person -> PhoneNumber
+
+// [START messages]
+// We create a Person message
+message Person {
+    /* 
+     * The " = 1", " = 2" markers on each element identify the
+     * unique "tag" that field uses in the binary encoding.
+     * Tag numbers 1-15 require one less byte to encode than higher numbers, 
+     * so as an optimization you can decide to use those tags for the commonly used or repeated elements, 
+     * leaving tags 16 and higher for less-commonly used optional elements.
+     */
+    string name = 1;
+    int32 id = 2;
+    string email = 3;
+
+    // Protobuf support enumerator type
+    enum PhoneType {
+        MOBILE = 0;
+        HOME = 1;
+        WORK = 2;
+    }
+
+    // Inside the Person struct we have PhoneNumber message
+    message PhoneNumber {
+        string number = 1;
+        PhoneType type = 2;
+    }
+
+    // Each element in a repeated field requires re-encoding the tag number
+    repeated PhoneNumber phones = 4;
+
+    google.protobuf.Timestamp last_updated = 5;
+}
+
+// Address book file is just one of these.
+message AddressBook {
+    repeated Person people = 1;
+}
+// [END messages]
