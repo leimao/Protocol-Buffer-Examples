@@ -6,7 +6,7 @@ Lei Mao
 
 Protocol Buffer, also known as Protobuf, is Google's language-neutral, platform-neutral, extensible mechanism for serializing structured data. Protocol Buffers Version 3 (Proto3) was released in 2016. However, the official [tutorials](https://developers.google.com/protocol-buffers/docs/cpptutorial) on the Google protobuf website are still for Proto2. The official [samples](https://github.com/protocolbuffers/protobuf/tree/master/examples) are using Proto3 and CMake, however, its CMake is not standard and many of its macros were not documented on the official CMake website.
 
-In this repository, I re-implemented Google's official Protobuf C++ example using Proto3 and CMake with the best practice, and put code comments as many as possible. 
+In this repository, I re-implemented Google's official Protobuf C++ example using Proto3 and CMake with the best practice. I also put code comments as many as possible to make sure the code is human readable and easy to understand. 
 
 ## Dependencies
 
