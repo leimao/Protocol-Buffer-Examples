@@ -44,6 +44,8 @@ $ cmake ..
 $ make
 ```
 
+All the executable files would be generated in `build/bin` directory.
+
 ### Run Examples
 
 ```bash
