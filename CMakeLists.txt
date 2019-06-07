@@ -10,8 +10,4 @@ project(protobuf-examples)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
 add_subdirectory(protos)
-# Make sure the generated proto header and source files are visible to the other projects
-#include_directories(${CMAKE_BINARY_DIR}/protos)
-#add_subdirectory(examples/add_people)
-#add_subdirectory(examples/list_people)
 add_subdirectory(examples)
