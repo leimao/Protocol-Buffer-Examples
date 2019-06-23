@@ -48,10 +48,10 @@ All the executable files would be generated in `build/bin` directory.
 
 ### Run Examples
 
-```bash
-$ cd bin
+#### Add People
 
-$ ./add_people data.pb # Add people to data
+```bash
+$ ./bin/add_people data.pb # Add people to data
 data.pb: File not found.  Creating a new file.
 Add person to address book? yes | no
 yes
@@ -79,8 +79,12 @@ Enter a phone number (or leave blank to finish):
 
 Add person to address book? yes | no
 no
+```
 
-$ ./list_people data.pb # Read data
+#### List People
+
+```bash
+$ ./bin/list_people data.pb # Read data
 Person ID: 12345
   Name: Lei Mao
   E-mail address: dukeleimao@gmail.com
