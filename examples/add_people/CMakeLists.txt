@@ -2,7 +2,9 @@
 cmake_minimum_required(VERSION 3.14.4)
 
 # Project
-project(add_people)
+project(add_people VERSION 0.0.1 LANGUAGES CXX)
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_BUILD_TYPE RelWithDebInfo)
 
 # Find required protobuf package
 find_package(Protobuf REQUIRED)

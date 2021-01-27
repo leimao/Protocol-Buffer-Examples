@@ -10,7 +10,7 @@ In this repository, I re-implemented Google's official Protobuf C++ example usin
 
 ## Dependencies
 
-* Google Protocol Buffers 3.8.0
+* Google Protocol Buffers 3.14.0
 * CMake 3.14.4+
 
 ## Files
@@ -18,6 +18,8 @@ In this repository, I re-implemented Google's official Protobuf C++ example usin
 ```
 .
 ├── CMakeLists.txt
+├── docker
+│   └── protobuf.Dockerfile
 ├── examples
 │   ├── add_people
 │   │   ├── add_people.cc
@@ -35,13 +37,23 @@ In this repository, I re-implemented Google's official Protobuf C++ example usin
 
 ## Usages
 
-### Compile
+### Build Docker Image
 
 ```bash
-$ mkdir -p build
-$ cd build
-$ cmake ..
-$ make
+$ docker build -f docker/protobuf.Dockerfile --build-arg PROTOBUF_VERSION=3.14.0 --build-arg NUM_JOBS=8 --tag protobuf-cmake:3.14.0 .
+```
+
+### Run Docker Container
+
+```bash
+$ docker run -it --rm -v $(pwd):/mnt protobuf-cmake:3.14.0
+```
+
+### Build
+
+```bash
+$ cmake -B build
+$ cmake --build build --config Release --parallel
 ```
 
 All the executable files would be generated in `build/bin` directory.
@@ -74,7 +86,7 @@ Enter person ID number:
 Enter name: 
 Andrew Ng
 Enter email address (blank for none): 
-andrew.ng@standford.edu
+andrew.ng@stanford.edu
 Enter a phone number (or leave blank to finish): 
 
 Add person to address book? yes | no
@@ -92,6 +104,6 @@ Person ID: 12345
   Updated: 2019-06-06T19:07:39Z
 Person ID: 54321
   Name: Andrew Ng
-  E-mail address: andrew.ng@standford.edu
+  E-mail address: andrew.ng@stanford.edu
   Updated: 2019-06-06T19:08:20Z
 ```
