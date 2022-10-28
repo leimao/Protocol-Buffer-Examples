@@ -23,8 +23,12 @@ foreach(proto ${PROTO_FILES})
     get_filename_component(PROTO_NAME_WE ${proto} NAME_WE)
     get_filename_component(PROTO_NAME ${proto} NAME)
     # message(STATUS "Generating Protobuf Code for ${PROTO_NAME}")
+    # message(STATUS "Generating Protobuf Code for ${PROTO_NAME_WE}")
     protobuf_generate_cpp(PROTO_SRCS PROTO_HDRS ${proto})
+    protobuf_generate_python(PROTO_PYS ${proto})
     add_library(${PROTO_NAME_WE} STATIC ${PROTO_SRCS} ${PROTO_HDRS})
     target_include_directories(${PROTO_NAME_WE} PUBLIC ${Protobuf_INCLUDE_DIRS})
+    # Add Python library
+    add_custom_target(${PROTO_NAME_WE}.py ALL DEPENDS ${PROTO_PYS})
 endforeach()
 
