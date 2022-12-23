@@ -2,6 +2,8 @@
 import sys
 sys.path.append("build/protos")
 import addressbook_pb2
+from time import time
+from addressbook_pb2 import google_dot_protobuf_dot_timestamp__pb2 as timestamp
 
 try:
   raw_input          # Python 2
@@ -35,6 +37,8 @@ def PromptForAddress(person):
       phone_number.type = addressbook_pb2.Person.WORK
     else:
       print("Unknown phone type; leaving as default value.")
+
+    person.last_updated.CopyFrom(timestamp.Timestamp(seconds=int(time())))
 
 
 # Main procedure:  Reads the entire address book from a file,
