@@ -3,7 +3,7 @@ from __future__ import print_function
 import sys
 sys.path.append("build/protos")
 import addressbook_pb2
-
+from datetime import datetime
 
 # Iterates though all people in the AddressBook and prints info about them.
 def ListPeople(address_book):
@@ -22,6 +22,9 @@ def ListPeople(address_book):
         print("  Work phone #:", end=" ")
       print(phone_number.number)
 
+    last_update = person.last_updated
+    if last_update.seconds != 0:
+      print("  Updated", datetime.fromtimestamp(last_update.seconds))
 
 # Main procedure:  Reads the entire address book from a file and prints all
 #   the information inside.
